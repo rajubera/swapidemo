@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+    	function viewCharactersApi(){
+    		var hasSort = confirm('Do you want to pass sort param?');
+    		if(hasSort){
+    			var sortBy = window.prompt("Enter sort param value as one of the  [‘name’, ‘mass’, ‘height’]");
+    			location.href = '/characters' + '?sort='+sortBy;
+
+    		}else{
+    			location.href = '/characters';
+    		}
+    		
+    		
+    	}
+    	function viewCharacterApi(){
+    		var name = window.prompt("Enter the name parameter of /character/:name");
+    		location.href = '/character/'+name;
+    	}
+    	function viewResidentsApi(){
+    		location.href = '/planetresidents';
+    	}
+    </script>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p><b>API ENDPOINTS:</b></p>
+    <ol>
+    	<li>/character/:name&nbsp;
+    	<button onclick="viewCharacterApi()">View</button>
+    	</li>
+    	<li>/characters &nbsp;<button onclick="viewCharactersApi()">View</button></li>
+    	<li>/planetresidents&nbsp;
+    		 <button onclick="viewResidentsApi()">View</button>
+    	</li>
+    </ol>
+  </body>
+</html>
